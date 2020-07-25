@@ -1,0 +1,18 @@
+#content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#content form label,
+#content form input{
+	margin-right: 20px;
+}
+
+.circulo {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    display: absolute;
+}
