@@ -1,0 +1,165 @@
+    body {
+        padding: 0px;
+        margin: 0px;
+        background: gray;
+    }
+
+    .container {
+        display: grid;
+        grid-template: 100px 1fr 60px / 200px 1fr;
+        grid-gap: 5px;
+        height: 100vh;
+        grid-template-areas: "header header" "left content" "footer footer";
+    }
+    .container-divs {
+        display: grid;
+        grid-template: 100px 1fr 60px / 200px 1fr;
+        grid-gap: 5px;
+        height: 100vh;
+        grid-template-areas: "header header" "left content" "footer footer";
+    }
+
+    .header {
+        grid-area: header;
+    }
+
+    .left {
+        grid-area: left;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .content {
+        grid-area: content;
+    }
+
+    .footer {
+        grid-area: footer;
+        text-align: center;
+        background: black;
+        color: white;
+    }
+
+    .item {
+        padding: 5px;
+        width: 100px;
+        height: 20px;
+        border: 1px solid grey;
+    }
+
+    a {
+        display: inline;
+        vertical-align: middle;
+    }
+
+    #datos {
+        width: 700px;
+        height: auto;
+        border: 1px solid black;
+        display: block;
+        margin: 10px;
+        text-align: center;
+        padding: 100px;
+        background: white;
+        border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+
+        box-shadow: 0px 3px 3px #000;
+        -webkit-box-shadow: 0px 3px 3px #000;
+        -moz-box-shadow: 0px 3px 3px #000;
+    }
+    #buttons {
+        width: 700px;
+        height: auto;
+        display: block;
+        margin: 5px;
+        text-align: center;
+        padding: 50px 100px;
+
+    }
+    button {
+        width: 110px;
+        height: 50px;
+        background: #48cfad;
+        text-align: center;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 50px;  
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        box-shadow: 0px 5px 5px #000;
+    }
+     input {
+        width: 200px;
+        height: 40px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 50px;  
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        box-shadow: 0px 5px 5px #000;
+    }
+    button:hover{
+        background: #fff;
+
+        box-shadow: 0px 3px 3px #000;
+
+    }
+
+
+    #datos .pasos{
+        height: auto;
+        border: 1px solid black;
+        display: block;
+        margin: 10px;
+        text-align: center;
+        background: gray;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+
+        box-shadow: 0px 3px 3px #000;
+        -webkit-box-shadow: 0px 3px 3px #000;
+        -moz-box-shadow: 0px 3px 3px #000;
+
+    }
+    #datos #pasboxo_1{
+     
+        visibility: visible;
+        background: yellow;
+    }
+    #box{
+        background: #000;
+    }
+    #datos #paso_2{
+     
+        visibility: hidden;
+        background: yellow;
+    }
+    #datos #paso_3{
+     
+        visibility: hidden;
+        background: orange;
+
+    }
+
+
+    .content-form {
+        display: block;
+        margin: 10px;
+    }
+
+    label {
+        display: block;
+        width: 100px;
+    }
+
+    .content-form-button {
+        width: 200px;
+        text-align: center;
+        margin: 10px;
+    }
