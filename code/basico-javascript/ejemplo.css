@@ -1,0 +1,8 @@
+#datos {
+    display: none;
+    border: 1px solid black;
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    text-align: center;
+}
