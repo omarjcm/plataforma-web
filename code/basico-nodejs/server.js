@@ -12,7 +12,7 @@ router.get('/message', function(req, res) {
     res.header({
         "custom-header":"Nuestro valor personalizado",
     })
-    res.send('Lista de mensajes')
+    res.status(201).send({error:'', body:'Creado correctamente.'})
 })
 
 router.delete('/message', function(req, res) {
