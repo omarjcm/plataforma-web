@@ -1,5 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const response = require('./network/response')
+
 const router = express.Router()
 
 var app = express()
@@ -12,13 +14,13 @@ router.get('/message', function(req, res) {
     res.header({
         "custom-header":"Nuestro valor personalizado",
     })
-    res.status(201).send({error:'', body:'Creado correctamente.'})
+    response.success(req, res, 'Lista de mensajes.')
 })
 
-router.delete('/message', function(req, res) {
+router.post('/message', function(req, res) {
     console.log( req.query )
     console.log( req.body )
-    res.send('Mensaje eliminado correctamente. ' + req.body.text)
+    response.success(req, res, 'Creado correctamente.')
 })
 
 app.listen(3000)
