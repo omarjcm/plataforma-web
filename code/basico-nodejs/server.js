@@ -19,8 +19,11 @@ router.get('/message', function(req, res) {
 
 router.post('/message', function(req, res) {
     console.log( req.query )
-    console.log( req.body )
-    response.success(req, res, 'Creado correctamente.')
+    if (req.query.error == 'ok') {
+        response.error(req, res, 'Error simulado.')
+    } else {
+        response.success(req, res, 'Creado correctamente.', 201)
+    }
 })
 
 app.listen(3000)
