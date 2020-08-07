@@ -6,11 +6,12 @@ const controller = require('./controller')
 const router = express.Router()
 
 router.get('/', function(req, res) {
-    controller.getMessages()
+    const filterMessages = req.query.user || null
+    controller.getMessages(filterMessages)
         .then((messageList) => {
             response.success(req, res, messageList, 200)
         })
-        .catch((error => {
+        .catch(((error) => {
             response.error(req, res, 'Unexpected error.', 500, error)
         }))
 })
@@ -20,7 +21,7 @@ router.post('/', function(req, res) {
         .then((fullMessage) => {
             response.success(req, res, fullMessage, 201)
         })
-        .catch(error => {
+        .catch((error) => {
             response.error(req, res, 'Información inválida.', 400, 'Error en el controlador.')
         })
 })
@@ -30,8 +31,8 @@ router.patch('/:id', function(req, res) {
         .then((data) => {
             response.success(req, res, data, 200)
         })
-        .catch((err) => {
-            response.error(req, res, 'Error interno.', 500, err)
+        .catch((error) => {
+            response.error(req, res, 'Error interno.', 500, error)
         })
 })
 
