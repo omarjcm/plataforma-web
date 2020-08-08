@@ -1,7 +1,7 @@
 const db = require('mongoose')
 const Model = require('./model')
 
-const uri = 'mongodb+srv://ups:ups2020@cluster0.pjyad.gcp.mongodb.net/ups?retryWrites=true&w=majority'
+const uri = 'mongodb+srv://ups:clave@XXXXX.mongodb.net/ups?retryWrites=true&w=majority'
 
 db.Promise = global.Promise
 db.connect(uri, { 
