@@ -1,4 +1,3 @@
-// Encargada de recibir las peticiones HTTP y pasarla al controlador.
 const express = require('express')
 const response = require('../../network/response')
 const controller = require('./controller')
