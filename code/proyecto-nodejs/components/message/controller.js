@@ -29,8 +29,25 @@ function updateMessage(id, message) {
             reject('Data inválida')
             return false
         }
-        const result = await store.updateText(id, message)
+        const result = await store.update(id, message)
         resolve( result )
+    })
+}
+
+function deleteMessage(id) {
+    return new Promise((resolve, reject) => {
+        if (!id) {
+            reject('Id invalido')
+            return false
+        }
+
+        store.remove(id)
+            .then(() => {
+                resolve()
+            })
+            .catch(e => {
+                reject(e)
+            })
     })
 }
 
@@ -38,4 +55,5 @@ module.exports = {
     addMessage,
     getMessages,
     updateMessage,
+    deleteMessage,
 }
