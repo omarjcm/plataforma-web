@@ -1,22 +1,27 @@
 const Model = require('./model')
 
 function addMessage( message ) {
-    const myMessage = new Model(message)
+    const myMessage = new Model( message )
     myMessage.save()
 }
 
-function getMessages( filterUser ) {
+function getMessages( filterChat ) {
     return new Promise((resolve, reject) => {
         let filter = {}
-        if (filterUser != null) {
-            filter = { user: filterUser }
+        if (filterChat != null) {
+            filter = { chat: filterChat }
         }
         Model.find( filter )
-            .populate('user')
+            .populate( 'user' )
+            .populate( {
+                path: 'chat',
+                populate: {
+                    path: 'users',
+                }
+            } )
             .exec((error, populated) => {
                 if (error) {
-                    reject( error )
-                    return false
+                    return reject( error )
                 }
                 resolve( populated )
             })

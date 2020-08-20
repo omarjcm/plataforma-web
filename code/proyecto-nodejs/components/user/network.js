@@ -5,7 +5,7 @@ const controller = require('./controller')
 const router = express.Router()
 
 router.post('/', function(req, res) {
-    controller.addUser(req.body.name)
+    controller.addUser(req.body.user, req.body.name, req.body.lastName)
         .then((data) => {
             response.success(req, res, data, 201)
         })

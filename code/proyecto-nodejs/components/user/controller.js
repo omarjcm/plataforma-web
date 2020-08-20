@@ -1,16 +1,18 @@
 const store = require('./store')
 
-function addUser(name) {
+function addUser(user, name, lastName) {
     return new Promise((resolve, reject) => {
         if (!name) {
             console.error('[UserController] No hay nombre.')
             return reject('Los datos son incorrectos')
         }
-        const user = {
+        const fullUser = {
+            user: user,
             name: name,
+            lastName: lastName,
         }
-        store.add( user )
-        return resolve( user )
+        store.add( fullUser )
+        return resolve( fullUser )
     }) 
 }
 

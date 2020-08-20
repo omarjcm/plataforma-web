@@ -1,25 +1,32 @@
 const use = require("./network")
 const store = require('./store')
+const config = require('../../config')
 
-function addMessage(user, message) {
+function addMessage(chat, user, message, file) {
     return new Promise((resolve, reject) => {
-        if (!user || !message) {
-            console.error('[MessageController] No hay usuario o mensaje.')
+        if (!chat || !user || !message) {
+            console.error('[MessageController] No hay chat, usuario o mensaje.')
             return reject('Los datos son incorrectos')
         }
+        let fileUrl = ''
+        if (file) {
+            fileUrl = config.host + ':' + config.port + config.publicRoute + config.filesRoute + '/' + file.filename
+        }
         const fullMessage = {
+            chat: chat,
             user: user,
             message: message,
             date: new Date(),
+            file: fileUrl,
         }
         store.add( fullMessage )
         return resolve( fullMessage )
     })
 }
 
-function getMessages( filterUser ) {
+function getMessages( filterChat ) {
     return new Promise((resolve, reject) => {
-        resolve(store.list(filterUser))
+        resolve(store.list( filterChat ))
     })
 }
 

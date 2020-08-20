@@ -3,15 +3,16 @@ const bodyParser = require('body-parser')
 
 const db = require('./db')
 const router = require('./network/routes')
+const config = require('./config')
 
-db('mongodb+srv://ups:clave@XXXXX.XXX.mongodb.net/db?retryWrites=true&w=majority')
+db( config.dbUrl )
 
 var app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 router(app)
 
-app.use('/app', express.static('public'))
+app.use(config.publicRoute, express.static('public'))
 
-app.listen(3000)
+app.listen( config.port )
 console.log('La aplicación está escuchando en http://localhost:3000')
